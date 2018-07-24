@@ -367,7 +367,7 @@ resolveEntrypoint Cradle {..} c@GmComponent {..} = do
 -- ghc do the warning about it. Right now we run that module through
 -- resolveModule like any other
 resolveChEntrypoints :: FilePath -> ChEntrypoint -> IO [CompilationUnit]
-resolveChEntrypoints _ (ChLibEntrypoint em om) =
+resolveChEntrypoints _ (ChLibEntrypoint em om _) =
     return $ map (Right . chModToMod) (em ++ om)
 
 resolveChEntrypoints _ (ChExeEntrypoint main om) =
